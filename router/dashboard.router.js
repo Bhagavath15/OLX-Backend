@@ -1,5 +1,6 @@
 import express from "express"; // "type": "module"
 import { client } from "../index.js"
+import { auth } from "../middleware/auth.js";
 
 const router = express.Router()
 
@@ -47,7 +48,7 @@ router.get("/cars", async function (request, response) {
         .toArray();
     response.send(detail)
 })
-router.get("/cars/:id", async function (request, response) {
+router.get("/cars/:id", auth, async function (request, response) {
     const { id } = request.params
     const detail = await client
         .db("Olx")
@@ -74,7 +75,7 @@ router.get("/bikes", async function (request, response) {
         .toArray();
     response.send(detail)
 })
-router.get("/bikes/:id", async function (request, response) {
+router.get("/bikes/:id", auth, async function (request, response) {
     const { id } = request.params
     const detail = await client
         .db("Olx")
@@ -100,7 +101,7 @@ router.get("/phones", async function (request, response) {
         .toArray();
     response.send(detail)
 })
-router.get("/phones/:id", async function (request, response) {
+router.get("/phones/:id", auth, async function (request, response) {
     const { id } = request.params
     const detail = await client
         .db("Olx")
@@ -125,7 +126,7 @@ router.get("/watches", async function (request, response) {
         .toArray();
     response.send(detail)
 })
-router.get("/watches/:id", async function (request, response) {
+router.get("/watches/:id", auth, async function (request, response) {
     const { id } = request.params
     const detail = await client
         .db("Olx")
@@ -151,7 +152,7 @@ router.get("/washingMachines", async function (request, response) {
         .toArray();
     response.send(detail)
 })
-router.get("/washingMachines/:id", async function (request, response) {
+router.get("/washingMachines/:id", auth, async function (request, response) {
     const { id } = request.params
     const detail = await client
         .db("Olx")
@@ -176,7 +177,7 @@ router.get("/laptops", async function (request, response) {
         .toArray();
     response.send(detail)
 })
-router.get("/laptops/:id", async function (request, response) {
+router.get("/laptops/:id", auth, async function (request, response) {
     const { id } = request.params
     const detail = await client
         .db("Olx")

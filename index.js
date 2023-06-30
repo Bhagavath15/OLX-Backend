@@ -7,7 +7,7 @@ import cors from "cors";
 import dashboardRouter from './router/dashboard.router.js';
 import signinRouter from './router/login.router.js';
 import emailRouter from './router/route.js';
-import { auth } from "./middleware/auth.js";
+
 
 // import bcrypt   from ' bcrypt'
 dotenv.config()
